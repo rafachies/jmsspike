@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<parent>
+		<groupId>org.chies</groupId>
+		<artifactId>jmsspike-parent</artifactId>
+		<version>SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.chies</groupId>
+	<artifactId>jmsspike</artifactId>
+	<version>SNAPSHOT</version>
+	<packaging>ear</packaging>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<modules>
+						<ejbModule>
+							<groupId>org.chies</groupId>
+							<artifactId>jmsspike-ejb</artifactId>
+							<bundleFileName>jmsspike.jar</bundleFileName>
+						</ejbModule>
+						<webModule>
+							<groupId>org.chies</groupId>
+							<artifactId>jmsspike-web</artifactId>
+							<bundleFileName>jmsspike.war</bundleFileName>
+							<contextRoot>/jmsspike</contextRoot>
+						</webModule>
+					</modules>
+				</configuration>
+			</plugin>
+		</plugins>
+		<finalName>jmsspike</finalName>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.chies</groupId>
+			<artifactId>jmsspike-ejb</artifactId>
+			<version>SNAPSHOT</version>
+			<type>ejb</type>
+		</dependency>
+		<dependency>
+			<groupId>org.chies</groupId>
+			<artifactId>jmsspike-web</artifactId>
+			<version>SNAPSHOT</version>
+			<type>war</type>
+		</dependency>
+	</dependencies>
+
+</project>
